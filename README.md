@@ -1,8 +1,8 @@
 # Vector Search using Voyage AI
 
-A TypeScript project that uses [Voyage AI](https://www.voyageai.com/) embeddings to perform semantic search over a FAQ dataset.
-
 **Voyage AI** is an AI research company specializing in embedding models and retrieval systems. It was acquired by Anthropic — the company behind Claude — in January 2025. As a result, Voyage AI's embedding models are now the recommended choice for building retrieval and search systems that work alongside Claude, offering tight integration within the Anthropic ecosystem.
+
+This is a small TypeScript project that demonstrates how to use Voyage AI embeddings to perform vector search over a FAQ dataset.
 
 ## Prerequisites
 
