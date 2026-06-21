@@ -1,0 +1,24 @@
+{
+  "name": "rag-ticket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "help": "ts-node src/help.ts",
+    "hello": "ts-node src/hello.ts",
+    "search": "ts-node src/search.ts",
+    "list": "ts-node src/list.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^26.0.0",
+    "chromadb": "^1.8.1",
+    "dotenv": "^17.4.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "voyageai": "^0.4.0"
+  }
+}
