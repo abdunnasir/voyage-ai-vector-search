@@ -83,6 +83,34 @@ Voyage AI takes a plain text string and converts it into a **vector embedding** 
 
 Texts with similar meanings produce vectors that point in similar directions in that 1024-dimensional space. This is what makes semantic search possible — instead of matching keywords, we compare meaning.
 
+## Code That Converts Text to Vector Embeddings
+
+The actual text-to-embedding conversion is handled by the `voyageai` SDK's `.embed()` method, called in two places:
+
+**`src/hello.ts` — lines 9–12** (connection test):
+
+```ts
+const response = await client.embed({
+  input: "Hello World — this is my first embedding!",
+  model: "voyage-3",
+});
+```
+
+This sends a single hardcoded string to Voyage AI and prints the resulting 1024-dimensional vector.
+
+**`src/search.ts` — lines 19–22** (semantic search):
+
+```ts
+async function embed(texts: string[]): Promise<number[][]> {
+  const response = await voyage.embed({ input: texts, model: "voyage-3" });
+  return response.data?.map((d) => d.embedding ?? []) ?? [];
+}
+```
+
+This `embed()` function accepts an array of strings and returns their embeddings as a 2D array of numbers. It is called twice in `main()` (lines 58–61) — once for all FAQ entries and once for the user's query — so both can be compared using cosine similarity.
+
+In both cases, the SDK sends the text to the Voyage AI API over HTTPS and receives back a list of 1024 floating-point numbers representing the meaning of that text.
+
 ## How Score is Calculated using Cosine Similarity
 
 **Voyage AI** is used to convert text into vector embeddings — numerical representations that capture the semantic meaning of a sentence. Each text becomes a list of 1024 numbers (a vector), where similar meanings result in vectors pointing in similar directions.
