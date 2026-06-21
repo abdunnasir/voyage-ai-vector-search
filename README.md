@@ -1,4 +1,4 @@
-# RAG Ticket
+# Vector Search using Voyage AI
 
 A TypeScript project that uses [Voyage AI](https://www.voyageai.com/) embeddings to perform semantic search over a FAQ dataset.
 
